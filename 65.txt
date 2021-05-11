@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+void find(string s,int l, int n,string k,unordered_set<string>&st)
+{
+    if(l==n)
+    {
+        st.insert(k);
+        return;
+    }
+ find(s,l+1,n,k+s[l],st) ;
+    find(s,l+1,n,k,st);
+}
+int main()
+{
+   string s;
+   string k=" ";
+   unordered_set<string>st;
+   cin>>s;
+   find(s,0,s.size(),k,st);
+   for(auto x:st)
+   {
+       cout<<x<<" ";
+   }
+}
